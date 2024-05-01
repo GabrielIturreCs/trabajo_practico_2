@@ -95,7 +95,8 @@ public class Main {
         origenFabricacion origen = asignarOrigen();
         // Se crea un nuevo producto y se agrega a la lista
         productos.add(new Producto(codigo, descripcion, precioUnitario, categoria, origen)); 
-        System.out.println("***CREACIÓN EXITOSA***\n");
+        System.out.println("se creo exitosamente\n");
+        
     }
 
     // Método para mostrar las opciones de categoría y obtener la elegida por el usuario
@@ -124,27 +125,27 @@ public class Main {
 
     // Método para asignar la categoría del producto
     public static Categoria asignarCategoria() {
-        Categoria c = null;
+        Categoria categoria = null;
         // Se muestra el menú de categorías y se obtiene la opción elegida por el usuario
         opcionElegida = menuCategoria();
         switch (opcionElegida) {
             case 1:
-                c = Categoria.TELEFONIA;
+                categoria = Categoria.TELEFONIA;
                 break;
             case 2: 
-                c = Categoria.INFORMATICA;
+                categoria = Categoria.INFORMATICA;
                 break;
             case 3:
-                c = Categoria.ELECTROHOGAR;
+                categoria = Categoria.ELECTROHOGAR;
                 break;
             case 4:
-                c = Categoria.HERRAMIENTAS;
+                categoria = Categoria.HERRAMIENTAS;
                 break;
             default: 
                 System.out.println("***OPCIÓN INVÁLIDA***");
                 break;
         }
-        return c;
+        return categoria;
     }
 
     // Método para asignar el origen de fabricación del producto
@@ -203,7 +204,7 @@ public class Main {
                 // Se convierte el precio ingresado a tipo Double y se devuelve
                 precio = Double.parseDouble(ingreso);
                 return precio;
-            } catch (Exception e) {
+            } catch (Exception error) {
                 System.err.println("Formato incorrecto");
             }
         }
@@ -213,10 +214,10 @@ public class Main {
     public static void modificarProducto(ArrayList<Producto> productos, String codigo) {
         boolean band = false;   
         Producto encontrado = new Producto(codigo, codigo, null, null, null);
-        for(Producto p: productos) {
-            if(p.getCodigo().equalsIgnoreCase(codigo)) {
+        for(Producto producto: productos) {
+            if(producto.getCodigo().equalsIgnoreCase(codigo)) {
                 band = true;
-                encontrado = p;
+                encontrado = producto;
             }
         }
         if(band) {
@@ -229,33 +230,33 @@ public class Main {
                         limpiarBuffer();
                         System.out.println("Ingrese nueva descripción: ");
                         encontrado.setDescripcion(sc.nextLine());
-                        System.out.println("***DESCRIPCIÓN CAMBIADA***\n");
+                        System.out.println("descripcion cambiada\n");
                         break;
                     case 2:
                         limpiarBuffer();
                         encontrado.setPrecioUnitario(ValidacionPrecio());
-                        System.out.println("***PRECIO CAMBIADO***\n");
+                        System.out.println("precio cambiado\n");
                         break;
                     case 3:
                         limpiarBuffer();
                         encontrado.setCategorias(asignarCategoria());
-                        System.out.println("***CATEGORÍA CAMBIADA***\n");
+                        System.out.println("categoria cambiada\n");
                         break;
                     case 4:
                         limpiarBuffer();
                         encontrado.setOrigen(asignarOrigen());
-                        System.out.println("***ORIGEN CAMBIADO***\n");
+                        System.out.println("origen cambiado\n");
                         break;
                     case 5: 
                         System.out.println("Hasta la próxima");
                         break;
                     default:
-                        System.out.println("***ERROR: OPCIÓN INVÁLIDA***");
+                        System.out.println("error");
                         break;
                 }
             } while(opcionElegida >= 5);
         } else {
-            System.out.println("***ERROR: CÓDIGO INEXISTENTE***");
+            System.out.println("Error:codigo no existe");
         }
     }
 
