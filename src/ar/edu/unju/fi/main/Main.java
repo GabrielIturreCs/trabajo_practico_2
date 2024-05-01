@@ -2,7 +2,7 @@ package ar.edu.unju.fi.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.lang.reflect.Array;
 import ar.edu.unju.fi.enums.Categoria;
 import ar.edu.unju.fi.enums.origenFabricacion;
 import ar.edu.unju.fi.model.Producto;
