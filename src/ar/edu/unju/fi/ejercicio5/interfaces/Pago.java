@@ -45,10 +45,18 @@ public class Pago {
          }
     }
 //aqui cree para que se impriman los datos del pago informando fecha y el monto total mas el porcentaje aplicado o el porcentaje restado.
-    public void imprimirRecibido(PagoEfectivo pagoEfectivo) {
+    public static void imprimirRecibido(PagoEfectivo pagoEfectivo) {
     	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     	System.out.println("Monto pagado: " + pagoEfectivo.getMontoPagado());
     	 System.out.println("Fecha de pago: " + pagoEfectivo.getFechadePago().format(formatter));
     }
+	public String getMontoPagado() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public LocalDate getFechadePago() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
